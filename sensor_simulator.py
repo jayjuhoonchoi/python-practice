@@ -1,5 +1,11 @@
 import random
 
+def check_temperature(temp):
+    if temp > 90:
+        return "Warning: high temperature"
+    else:
+        return "OK"
+
 temperatures = []
 
 for i  in range(5):
@@ -9,7 +15,5 @@ for i  in range(5):
 print("All readings:", temperatures)
 
 for temp in temperatures:
-    if temp > 90:
-        print("Warning: high temperature -", temp)
-    else:
-        print("OK -", temp)
+    status = check_temperature(temp)
+    print(status, "-", temp)
