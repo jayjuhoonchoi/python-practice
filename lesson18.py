@@ -26,14 +26,14 @@ for temp in temperature:
     status = check_temperature(temp)
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-if status == "Warning":
-    logging.warning(f"High temperature detected: {temp}")
+    if status == "Warning":
+        logging.warning(f"High temperature detected: {temp}")
 
-cursor.execute(
+    cursor.execute(
     "INSERT INTO readings (equipment_id, temperature, status) VALUES (%s, %s, %s)", ("AUTO-CHECK", temp, status)
-)
+    )
 
-conn. commit()
+conn.commit()
 logging.info("All readingvs saved to database")
 df = pd.read_sql("SELECT * FROM readings", conn)
 
