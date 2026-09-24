@@ -26,3 +26,10 @@ for index, v in enumerate(values):
 
 df = pd.DataFrame({"values": values})
 print(df["values"].mean())
+
+
+
+pressures = [95.0, 88.2, 102.5]
+
+for p in pressures:
+    print(p)
