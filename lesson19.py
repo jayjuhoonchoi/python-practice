@@ -11,7 +11,7 @@ df = pd.DataFrame({"values": [3.2, 8.5, 6.1, 9.0]})
 print(df["values"].mean())
 
 
-print("올바른 예시)
+print("올바른 예시")
 
 import pandas as pd
 
