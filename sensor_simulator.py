@@ -2,6 +2,7 @@ import random
 import json
 from pathlib import Path
 from datetime import datetime
+from database import get_connection, save_reading
 
 def check_temperature(temp):
     if temp > 90:
@@ -42,6 +43,15 @@ with open(output_path, "w") as file:
     json.dump(results, file)
 
 print("Saved results to:", output_path)
+
+conn = get_connection()
+cursor = conn.cursor()
+
+for r in results:
+    save_reading(cursor, "AUTO-CHECK", r["temperature"], r["status"])
+
+conn.commit()
+print("Saved to database")
 
 
 
