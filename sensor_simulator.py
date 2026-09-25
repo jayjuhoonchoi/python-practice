@@ -12,15 +12,17 @@ def check_temperature(temp):
 def get_timestamp():
     return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
+def generate_readings(count):
+    readings = []
+    for i in range(count):
+        reading = round(random.uniform(60, 95), 1)
+        readings.append(reading)
+    return readings
+
 data_folder = Path("data")
 data_folder.mkdir(exist_ok=True)
 
-temperatures = []
-
-for i in range(5):
-    reading = round(random.uniform(60, 95), 1)
-    temperatures.append(reading)
-
+temperatures = generate_readings(5)
 print("All readings:", temperatures)
 
 results = []
